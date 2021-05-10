@@ -6,3 +6,40 @@ soup=BeautifulSoup(webpage.content,"html.parser" )
 data=soup.find_all('table')
 tbody=data[0].find_all('tbody')
 
+for i in tbody:
+   a= i.text.split('\n')
+
+
+k = 0
+while k < len(a):
+    if a[k] == '':
+        del a[k]
+        k -= 1
+    k += 1
+
+del a[0:4]
+
+list1 = []
+name = []
+list3 = []
+amount = []
+
+for k in range(0,len(a)):
+    if k%4 == 0:
+        list1.append(a[k])
+    if k%4 == 1:
+        name.append(a[k])
+    if k%4 == 2:
+        list3.append(a[k])
+    if k%4 == 3:
+        amount.append(a[k])
+
+print(list1)
+print(name)
+print(list3)
+print(amount)
+
+j=0
+while j < len(amount):
+    amount[j]=amount[j].replace(',','')
+    j+=1
