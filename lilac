@@ -43,3 +43,20 @@ j=0
 while j < len(amount):
     amount[j]=amount[j].replace(',','')
     j+=1
+
+import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.rcParams["axes.unicode_minus"]=False
+plt.rc('font', family='Malgun Gothic')
+
+x=range(len(name))
+
+fig, ax1 = plt.subplots()
+ax1.set_title('국내 브랜드별 음료수 판매량')
+ax1.bar(x, amount,color="red")
+ax1.set_ylim(1000,60000)
+ax1.set_ylabel('판매량')
+ax1.set_xticks(x)
+ax1.set_xticklabels(name)
+plt.show()
