@@ -1,0 +1,8 @@
+import requests
+from bs4 import BeautifulSoup
+
+webpage=requests.get('https://ozrank.co.kr/298')
+soup=BeautifulSoup(webpage.content,"html.parser" )
+data=soup.find_all('table')
+tbody=data[0].find_all('tbody')
+
